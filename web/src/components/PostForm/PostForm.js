@@ -1,13 +1,16 @@
 import {
+  FieldError,
   Form,
   FormError,
-  FieldError,
   Label,
-  TextField,
   Submit,
+  TextField,
 } from '@redwoodjs/web'
+import {useState} from 'react'
+import DrawingCanvas from 'src/components/DrawingCanvas'
 
 const PostForm = props => {
+  const [drawing, setDrawing] = useState('')
   const onSubmit = data => {
     props.onSave(data, props?.post?.id)
   }
@@ -32,10 +35,12 @@ const PostForm = props => {
         <TextField
           name="image"
           defaultValue={props.post?.image}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
+          value={drawing}
+          className="rw-input sr-only"
+          errorClassName="rw-input rw-input-error sr-only"
           validation={{required: true}}
         />
+        <DrawingCanvas onDraw={setDrawing} defaultValue={props.post?.image} />
         <FieldError name="image" className="rw-field-error" />
 
         <div className="rw-button-group">
