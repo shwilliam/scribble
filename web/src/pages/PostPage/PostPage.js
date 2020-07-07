@@ -1,11 +1,11 @@
-import PostsLayout from 'src/layouts/PostsLayout'
 import PostCell from 'src/components/PostCell'
+import BaseLayout from 'src/layouts/BaseLayout'
 
 const PostPage = ({id}) => {
   return (
-    <PostsLayout>
+    <BaseLayout>
       <PostCell id={id} />
-    </PostsLayout>
+    </BaseLayout>
   )
 }
 

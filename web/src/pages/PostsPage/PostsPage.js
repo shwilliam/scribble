@@ -1,11 +1,11 @@
-import PostsLayout from 'src/layouts/PostsLayout'
 import PostsCell from 'src/components/PostsCell'
+import BaseLayout from 'src/layouts/BaseLayout'
 
 const PostsPage = () => {
   return (
-    <PostsLayout>
+    <BaseLayout>
       <PostsCell />
-    </PostsLayout>
+    </BaseLayout>
   )
 }
 

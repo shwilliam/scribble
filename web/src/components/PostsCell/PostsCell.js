@@ -1,5 +1,4 @@
 import {Link, routes} from '@redwoodjs/router'
-
 import Posts from 'src/components/Posts'
 
 export const QUERY = gql`
@@ -21,7 +20,7 @@ export const Loading = () => <div>Loading...</div>
 export const Empty = () => {
   return (
     <div className="rw-text-center">
-      {'No posts yet. '}
+      {'No scribbles yet. '}
       <Link to={routes.newPost()} className="rw-link">
         {'Create one?'}
       </Link>

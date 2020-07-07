@@ -1,3 +1,28 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
 .sr-only {
   position: absolute;
   left: -10000px;
@@ -5,4 +30,21 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.undecorated {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item {
+  margin-left: 1.5em;
+}
+
+.drawing-canvas {
+  background: #fff;
 }

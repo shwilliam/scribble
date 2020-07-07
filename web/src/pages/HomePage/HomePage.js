@@ -1,9 +1,10 @@
+import PostsCell from 'src/components/PostsCell'
 import BaseLayout from 'src/layouts/BaseLayout'
 
 const HomePage = () => {
   return (
     <BaseLayout>
-      <p>Find me in ./web/src/pages/HomePage/HomePage.js</p>
+      <PostsCell />
     </BaseLayout>
   )
 }
