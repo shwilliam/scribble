@@ -1,4 +1,4 @@
-# Scribble
+# dood.link
 
 ## Setup
 

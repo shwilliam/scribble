@@ -8,7 +8,7 @@ const BaseLayout = ({children}) => {
       <header className="rw-header">
         <h1 className="rw-heading rw-heading-primary">
           <Link to={routes.home()} className="rw-link">
-            Scribble
+            dood.link
           </Link>
         </h1>
         <nav>
@@ -20,7 +20,7 @@ const BaseLayout = ({children}) => {
             </li>
             <li className="nav__item">
               <Link to={routes.newPost()} className="rw-button rw-button-green">
-                <div className="rw-button-icon">+</div> New Scribble
+                <div className="rw-button-icon">+</div> New doodle
               </Link>
             </li>
           </ul>
