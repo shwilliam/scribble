@@ -80,7 +80,7 @@ const DrawingCanvas = ({
         />
       </div>
       <canvas
-        className="drawing-canvas"
+        className="drawing-canvas bordered"
         ref={canvasRef}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
