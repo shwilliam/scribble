@@ -12,12 +12,11 @@ const DrawingCanvas = ({
 
   useEffect(() => {
     const canvas = canvasRef.current
-
+    canvas.style.width = `${width}px`
+    canvas.style.height = `${height}px`
     // support high dpi displays
     canvas.width = width * 2
     canvas.height = width * 2
-    canvas.style.width = `${width}px`
-    canvas.style.height = `${height}px`
 
     // TODO: handle window resize
 
@@ -26,10 +25,12 @@ const DrawingCanvas = ({
     context.strokeStyle = 'black'
     context.scale(2, 2) // support high dpi displays
 
-    // paint default value
-    const image = new Image()
-    image.onload = () => context.drawImage(image, 0, 0)
-    image.src = defaultValue
+    if (defaultValue) {
+      // paint default value
+      const image = new Image()
+      image.onload = () => context.drawImage(image, 0, 0, width, height)
+      image.src = defaultValue
+    }
 
     contextRef.current = context
   }, [width, height, defaultValue])
