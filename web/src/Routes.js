@@ -3,10 +3,10 @@ import {Private, Route, Router} from '@redwoodjs/router'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/posts/new" page={NewPostPage} name="newPost" />
-      <Route path="/posts/{id:Int}" page={PostPage} name="post" />
-      <Route path="/posts" page={PostsPage} name="posts" />
       <Route path="/about" page={AboutPage} name="about" />
+      <Route path="/posts/{id:Int}" page={PostPage} name="post" />
+      <Route path="/posts/new" page={NewPostPage} name="newPost" />
+      <Route path="/posts" page={PostsPage} name="posts" />
       <Route path="/login" page={LoginPage} name="login" />
       <Private unauthenticated="home">
         <Route
