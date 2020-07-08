@@ -4,7 +4,15 @@ import BaseLayout from 'src/layouts/BaseLayout'
 const NewPostPage = () => {
   return (
     <BaseLayout>
-      <NewPost />
+      <header className="align-center">
+        <h1 className="title bold">create a dood.link</h1>
+      </header>
+
+      <hr />
+
+      <section className="align-center">
+        <NewPost />
+      </section>
     </BaseLayout>
   )
 }

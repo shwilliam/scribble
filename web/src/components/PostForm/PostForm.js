@@ -12,7 +12,7 @@ import DrawingCanvas from 'src/components/DrawingCanvas'
 const PostForm = props => {
   const [drawing, setDrawing] = useState('')
   const onSubmit = data => {
-    props.onSave(data, props?.post?.id)
+    props.onSave({image: data.doodle}, props?.post?.id)
   }
 
   return (
@@ -26,26 +26,29 @@ const PostForm = props => {
         />
 
         <Label
-          name="image"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
+          name="doodle"
+          className="rw-label hide-screens"
+          errorClassName="rw-label rw-label-error hide-screens"
         >
-          Image
+          doodle
         </Label>
         <TextField
-          name="image"
+          name="doodle"
           defaultValue={props.post?.image}
           value={drawing}
-          className="rw-input sr-only"
-          errorClassName="rw-input rw-input-error sr-only"
+          className="rw-input hide-screens"
+          errorClassName="rw-input rw-input-error hide-screens"
           validation={{required: true}}
         />
         <DrawingCanvas onDraw={setDrawing} defaultValue={props.post?.image} />
-        <FieldError name="image" className="rw-field-error" />
+        <FieldError name="doodle" className="rw-field-error" />
 
         <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
+          <Submit
+            disabled={props.loading}
+            className="rw-button rw-button-green"
+          >
+            publish
           </Submit>
         </div>
       </Form>

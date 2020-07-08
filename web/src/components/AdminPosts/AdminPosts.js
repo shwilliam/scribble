@@ -40,7 +40,7 @@ const AdminPosts = ({posts}) => {
             <tr key={post.id}>
               <td>{post.id}</td>
               <td>
-                <img src={post.image} aria-label="" />
+                <img src={post.image} alt="" />
               </td>
               <td>
                 <TimeTag datetime={post.createdAt} />

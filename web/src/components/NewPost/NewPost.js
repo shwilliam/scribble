@@ -13,9 +13,11 @@ const CREATE_POST_MUTATION = gql`
 const NewPost = () => {
   const {addMessage} = useFlash()
   const [createPost, {loading, error}] = useMutation(CREATE_POST_MUTATION, {
-    onCompleted: () => {
-      navigate(routes.posts())
-      addMessage('Post created.', {classes: 'rw-flash-success'})
+    onCompleted: ({createPost}) => {
+      navigate(routes.post({id: createPost.id}))
+      addMessage('Doodle published successfully! 🎊', {
+        classes: 'rw-flash-success',
+      })
     },
   })
 
@@ -23,16 +25,7 @@ const NewPost = () => {
     createPost({variables: {input}})
   }
 
-  return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Post</h2>
-      </header>
-      <div className="rw-segment-main">
-        <PostForm onSave={onSave} loading={loading} error={error} />
-      </div>
-    </div>
-  )
+  return <PostForm onSave={onSave} loading={loading} error={error} />
 }
 
 export default NewPost

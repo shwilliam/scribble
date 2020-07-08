@@ -1,9 +1,8 @@
 import {Link, routes} from '@redwoodjs/router'
-import TimeTag from 'src/components/TimeTag'
 
 const PostsList = ({posts}) => {
   return (
-    <div className="rw-segment">
+    <div className="rw-segment grid">
       {posts.map(post => (
         <Link
           key={post.id}
@@ -11,8 +10,7 @@ const PostsList = ({posts}) => {
           title={'Show post ' + post.id + ' detail'}
           className="rw-link undecorated"
         >
-          <img src={post.image} aria-label="" />
-          <TimeTag datetime={post.createdAt} />
+          <img src={post.image} alt="TODO" />
         </Link>
       ))}
     </div>
