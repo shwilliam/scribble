@@ -10,7 +10,7 @@ const NewPostPage = () => {
 
       <hr />
 
-      <section className="align-center">
+      <section>
         <NewPost />
       </section>
     </BaseLayout>

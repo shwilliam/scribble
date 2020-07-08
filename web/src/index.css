@@ -483,10 +483,34 @@ textarea,
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 }
 
+.drawing-canvas__wrapper {
+  width: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .drawing-canvas {
   background: #fff;
   border-width: 1px;
   border-color: #e2e8f0;
   color: #4a5568;
   border-radius: 0.25rem;
+}
+
+.drawing-canvas__stroke {
+  position: absolute;
+  right: -50px;
+  top: 0;
+}
+
+.drawing-canvas__stroke-input {
+  border: none;
+  background: transparent;
+  border-radius: 25px;
+  width: 50px;
+  height: 30px;
+}
+
+.drawing-canvas__stroke-label {
+  font-size: 1.4rem;
 }
