@@ -18,9 +18,17 @@ const BaseLayout = ({children}) => {
               </span>
               dood.link
             </Link>
-            <Link to={routes.newPost()} className="rw-button rw-button-blue">
-              <div className="rw-button-icon">+</div> New doodle
-            </Link>
+            <nav className="flex">
+              <Link
+                to={routes.posts()}
+                className="rw-heading rw-link push-large flush--top flush--bottom"
+              >
+                recent
+              </Link>
+              <Link to={routes.newPost()} className="rw-button rw-button-blue">
+                <div className="rw-button-icon">+</div> New doodle
+              </Link>
+            </nav>
           </div>
         </header>
 
