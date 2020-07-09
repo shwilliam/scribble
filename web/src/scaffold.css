@@ -185,6 +185,7 @@
   text-decoration: none;
   letter-spacing: 0.025rem;
   border-radius: 5rem;
+  white-space: nowrap;
 }
 .rw-button:hover {
   background-color: #718096;
