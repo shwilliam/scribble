@@ -5,7 +5,8 @@ const PostsPage = () => {
   return (
     <BaseLayout>
       <header className="align-center">
-        <h1 className="title bold">recent posts</h1>
+        <h1 className="title bold">recent doodles</h1>
+        <p className="subtitle push">browse recently created doodles</p>
       </header>
 
       <hr />

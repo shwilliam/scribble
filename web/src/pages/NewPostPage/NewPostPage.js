@@ -5,7 +5,8 @@ const NewPostPage = () => {
   return (
     <BaseLayout>
       <header className="align-center">
-        <h1 className="title bold">create a dood.link</h1>
+        <h1 className="title bold">create a doodle</h1>
+        <p className="subtitle push">draw anything and get a shareable URL</p>
       </header>
 
       <hr />
