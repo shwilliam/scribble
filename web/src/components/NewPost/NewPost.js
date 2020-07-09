@@ -18,7 +18,7 @@ const NewPost = () => {
   const [createPost, {loading, error}] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: ({createPost}) => {
       const {id} = createPost
-      copy(`https://dood.link/${id}`).then(() => {
+      copy(`${process.env.BASE_URL}/posts/${id}`).then(() => {
         navigate(routes.post({id}))
         addMessage('Success! Doodle link copied to clipboard 🎊', {
           classes: 'rw-flash-success',
