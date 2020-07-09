@@ -3,7 +3,7 @@ import TimeTag from 'src/components/TimeTag'
 const Post = ({post}) => {
   return (
     <article className="rw-segment doodle__wrapper">
-      <img className="doodle bordered" src={post.image} alt="TODO" />
+      <img className="doodle bordered" src={post.image} alt={post.label} />
 
       <footer className="flex -space-between">
         <TimeTag datetime={post.createdAt} />

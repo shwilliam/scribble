@@ -10,7 +10,7 @@ const PostsList = ({posts}) => {
           title={'Show post ' + post.id + ' detail'}
           className="rw-link undecorated"
         >
-          <img src={post.image} alt="TODO" />
+          <img src={post.image} alt={post.label} />
         </Link>
       ))}
     </div>
