@@ -1,5 +1,7 @@
 import {useEffect, useRef, useState} from 'react'
 
+import {getEventPosition} from 'src/lib/native-events'
+
 const DrawingCanvas = ({
   width = 300,
   height = 300,
@@ -13,12 +15,13 @@ const DrawingCanvas = ({
 
   const handleStrokeChange = event => setStroke(event.target.value)
 
-  const handleMouseDown = ({nativeEvent}) => {
-    const {offsetX, offsetY} = nativeEvent
+  const handleMouseDown = event => {
+    event.persist()
+    const {x, y} = getEventPosition(event)
 
     contextRef.current.strokeStyle = stroke
     contextRef.current.beginPath()
-    contextRef.current.moveTo(offsetX, offsetY)
+    contextRef.current.moveTo(x, y)
 
     setIsDrawing(true)
   }
@@ -31,11 +34,12 @@ const DrawingCanvas = ({
     onDraw(base64)
   }
 
-  const handleMouseMove = ({nativeEvent}) => {
+  const handleMouseMove = event => {
+    event.persist()
     if (!isDrawing) return
 
-    const {offsetX, offsetY} = nativeEvent
-    contextRef.current.lineTo(offsetX, offsetY)
+    const {x, y} = getEventPosition(event)
+    contextRef.current.lineTo(x, y)
     contextRef.current.stroke()
   }
 
@@ -43,6 +47,7 @@ const DrawingCanvas = ({
     const canvas = canvasRef.current
     canvas.style.width = `${width}px`
     canvas.style.height = `${height}px`
+    canvas.style.touchAction = 'none'
     // support high dpi displays
     canvas.width = width * 2
     canvas.height = width * 2
@@ -85,6 +90,9 @@ const DrawingCanvas = ({
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleMouseDown}
+        onTouchEnd={handleMouseUp}
+        onTouchMove={handleMouseMove}
       />
     </section>
   )
