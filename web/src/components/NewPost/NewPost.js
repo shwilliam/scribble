@@ -2,7 +2,7 @@ import {navigate, routes} from '@redwoodjs/router'
 import {useFlash, useMutation} from '@redwoodjs/web'
 import PostForm from 'src/components/PostForm'
 
-import useClipboard from 'src/hooks/useClipboard'
+import {copyToClipboard} from 'src/lib/clipboard'
 
 const CREATE_POST_MUTATION = gql`
   mutation CreatePostMutation($input: CreatePostInput!) {
@@ -14,11 +14,10 @@ const CREATE_POST_MUTATION = gql`
 
 const NewPost = () => {
   const {addMessage} = useFlash()
-  const {copy} = useClipboard()
   const [createPost, {loading, error}] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: ({createPost}) => {
       const {id} = createPost
-      copy(`${process.env.BASE_URL}/posts/${id}`).then(() => {
+      copyToClipboard(`${process.env.BASE_URL}/posts/${id}`).then(() => {
         navigate(routes.post({id}))
         addMessage('Success! Doodle link copied to clipboard 🎊', {
           classes: 'rw-flash-success',
