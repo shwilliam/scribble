@@ -7,6 +7,7 @@ export const QUERY = gql`
     post: post(id: $id) {
       id
       image
+      label
       createdAt
     }
   }

@@ -30,6 +30,7 @@ const AdminPosts = ({posts}) => {
         <thead>
           <tr>
             <th>id</th>
+            <th>label</th>
             <th>image</th>
             <th>createdAt</th>
             <th>&nbsp;</th>
@@ -39,6 +40,7 @@ const AdminPosts = ({posts}) => {
           {posts.map(post => (
             <tr key={post.id}>
               <td>{post.id}</td>
+              <td>{post.label}</td>
               <td>
                 <img src={post.image} alt="" />
               </td>
