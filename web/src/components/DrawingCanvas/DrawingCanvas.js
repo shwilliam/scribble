@@ -10,6 +10,7 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
   const canvasRef = useRef()
   const contextRef = useRef()
   const [isDrawing, setIsDrawing] = useState(false)
+  const [stroke, setStroke] = useState('#ff40ff')
 
   const handleStrokeChange = event => setStroke(event.target.value)
 
