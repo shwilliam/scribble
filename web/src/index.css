@@ -39,6 +39,8 @@
   --type-x-large: 150%;
   --type-xx-large: 200%;
   --type-xxx-large: 300%;
+
+  --drawing-canvas-max-width: 725px;
 }
 
 /*********
@@ -473,13 +475,14 @@ textarea,
 }
 
 .doodle__wrapper {
-  max-width: 300px;
   margin: 0 auto;
 }
 
 .drawing-canvas__wrapper {
-  width: 300px;
   margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding-top: var(--space-medium);
 }
 
 .drawing-canvas {
@@ -489,8 +492,9 @@ textarea,
 
 .drawing-canvas__stroke {
   position: absolute;
-  right: -50px;
-  top: 0;
+  top: -20px;
+  right: 0px;
+  margin-right: var(--space-small);
 }
 
 .drawing-canvas__stroke-input {
