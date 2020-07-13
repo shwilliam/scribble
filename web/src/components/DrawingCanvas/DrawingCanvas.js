@@ -1,7 +1,7 @@
-import {useEffect, useRef, useState} from 'react'
-import {useWindowSize} from 'react-use'
 import {useCssVar} from '@shwilliam/react-use-css-var'
+import {useEffect, useRef, useState} from 'react'
 
+import {useWindowSize} from 'src/hooks/use-window-size'
 import {getEventPosition} from 'src/lib/native-events'
 
 const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
