@@ -49,6 +49,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  position: relative;
 }
 
 html {
@@ -160,12 +161,6 @@ hr {
     var(--color-peach) 0%,
     var(--color-azure) 100%
   );
-}
-
-@media (min-width: 91em) {
-  :root {
-    --type-base: 2.2em;
-  }
 }
 
 /* dispatch single taps w/o delay */
@@ -485,7 +480,6 @@ textarea,
 .drawing-canvas__wrapper {
   width: 300px;
   margin: 0 auto;
-  position: relative;
 }
 
 .drawing-canvas {
@@ -509,6 +503,30 @@ textarea,
 
 .drawing-canvas__stroke-label {
   font-size: 1.4rem;
+}
+
+.hero-action__wrapper {
+  margin-top: var(--space-xx-large);
+}
+
+@media (min-width: 45em) {
+  .hero-action__wrapper {
+    margin-top: var(--space-xxx-large);
+  }
+}
+
+.hero-action__wrapper:hover .hero-action__arrow {
+  opacity: 0.8;
+}
+
+.hero-action__arrow {
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  transform: translate(-70%, -90%) rotate(-30deg);
+  height: 80px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .monster-artist {

@@ -219,6 +219,17 @@
 .rw-button.rw-button-red:hover {
   background-color: #c53030;
 }
+.rw-button.rw-button-hero,
+.rw-button.rw-button-hero:hover {
+  display: inline-block;
+  padding: var(--space-medium);
+  background-color: #6c63ff;
+}
+@media (min-width: 45em) {
+  .rw-button.rw-button-hero {
+    font-size: var(--type-large);
+  }
+}
 .rw-button-icon {
   font-size: 1rem;
   line-height: 1;
