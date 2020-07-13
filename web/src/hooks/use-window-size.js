@@ -5,16 +5,10 @@ import {useState} from 'react'
 import {useMount} from './use-mount'
 
 export const useWindowSize = () => {
-  const isClient = typeof window === 'object'
-  const [windowSize, setWindowSize] = useState(getSize)
-
-  const getSize = () => ({
-    width: isClient ? window.innerWidth : undefined,
-    height: isClient ? window.innerHeight : undefined,
-  })
+  const [windowSize, setWindowSize] = useState(getSize())
 
   useMount(() => {
-    if (!isClient) return false
+    if (!isClient) return
 
     const handleResize = () => {
       setWindowSize(getSize())
@@ -26,3 +20,10 @@ export const useWindowSize = () => {
 
   return windowSize
 }
+
+const isClient = typeof window === 'object'
+
+const getSize = () => ({
+  width: isClient ? window.innerWidth : undefined,
+  height: isClient ? window.innerHeight : undefined,
+})

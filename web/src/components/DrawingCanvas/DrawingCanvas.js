@@ -6,7 +6,7 @@ import {getEventPosition} from 'src/lib/native-events'
 
 const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
   const [getMaxCanvasSize] = useCssVar('--drawing-canvas-max-width')
-  const {width} = useWindowSize()
+  const windowSize = useWindowSize()
   const canvasRef = useRef()
   const contextRef = useRef()
   const [isDrawing, setIsDrawing] = useState(false)
@@ -43,11 +43,13 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
   }
 
   useEffect(() => {
+    if (!windowSize) return
+
     const canvas = canvasRef.current
     const maxCanvasSize = getMaxCanvasSize()
     const maxCanvasSizePixels = Number(maxCanvasSize.split('px')[0])
     const widthScale = 0.8
-    const scaledWidth = width * widthScale
+    const scaledWidth = windowSize?.width * widthScale
     const heightScale = 0.7
     const scaledHeight = scaledWidth * widthScale
     const canvasSize =
@@ -74,7 +76,7 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
     }
 
     contextRef.current = context
-  }, [width, defaultValue, getMaxCanvasSize])
+  }, [windowSize, defaultValue, getMaxCanvasSize])
 
   return (
     <section className="drawing-canvas__wrapper">
