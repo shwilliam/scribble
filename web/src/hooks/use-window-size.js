@@ -1,4 +1,4 @@
-// reference: https://usehooks.com/useWindowSize/
+// reference: https://github.com/gragland/usehooks/blob/ea20f9c066bf9aa38239bbe542bc2178992675fd/src/pages/useWindowSize.md
 
 import {useState} from 'react'
 
