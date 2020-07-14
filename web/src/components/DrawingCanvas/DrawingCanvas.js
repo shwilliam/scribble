@@ -9,6 +9,7 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
   const [getMaxCanvasSize] = useCssVar('--drawing-canvas-max-width')
   const [getLargeSpace] = useCssVar('--space-x-large') // horizontal margins
   const windowSize = useWindowSize()
+  const drawingRef = useRef(defaultValue)
   const canvasRef = useRef()
   const contextRef = useRef()
   const [isDrawing, setIsDrawing] = useState(false)
@@ -33,6 +34,7 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
 
     const base64 = canvasRef.current.toDataURL()
     onDraw(base64)
+    drawingRef.current = base64
   }
 
   const handleMouseMove = event => {
@@ -74,12 +76,12 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
     context.strokeStyle = 'black'
     context.scale(2, 2) // support high dpi displays
 
-    if (defaultValue) {
-      // paint default value
+    if (drawingRef.current) {
+      // paint existing drawing value
       const image = new Image()
       image.onload = () =>
-      image.src = defaultValue
         context.drawImage(image, 0, 0, canvasSize, scaledHeight)
+      image.src = drawingRef.current
     }
 
     contextRef.current = context
