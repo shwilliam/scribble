@@ -1,4 +1,5 @@
 import {
+  CheckboxField,
   FieldError,
   Form,
   FormError,
@@ -12,8 +13,11 @@ import DrawingCanvas from 'src/components/DrawingCanvas'
 const PostForm = props => {
   const [drawing, setDrawing] = useState('')
   const onSubmit = data => {
-    const {doodle, label} = data
-    props.onSave({image: doodle, label: label}, props?.post?.id)
+    const {doodle, label, hidden} = data
+    props.onSave(
+      {image: doodle, label: label, private: hidden},
+      props?.post?.id,
+    )
   }
 
   return (
@@ -26,39 +30,54 @@ const PostForm = props => {
           listClassName="rw-form-error-list"
         />
 
-        <Label
-          name="doodle"
-          className="rw-label hide-screens"
-          errorClassName="rw-label rw-label-error hide-screens"
-        >
-          doodle
-        </Label>
-        <TextField
-          name="doodle"
-          defaultValue={props.post?.image}
-          value={drawing}
-          className="rw-input hide-screens"
-          errorClassName="rw-input rw-input-error hide-screens"
-          validation={{required: true}}
-        />
-        <DrawingCanvas onDraw={setDrawing} defaultValue={props.post?.image} />
-        <FieldError name="doodle" className="rw-field-error" />
+        <div className="rw-input-group">
+          <Label
+            name="doodle"
+            className="rw-label hide-screens"
+            errorClassName="rw-label rw-label-error hide-screens"
+          >
+            doodle
+          </Label>
+          <TextField
+            name="doodle"
+            defaultValue={props.post?.image}
+            value={drawing}
+            className="rw-input hide-screens"
+            errorClassName="rw-input rw-input-error hide-screens"
+            validation={{required: true}}
+          />
+          <DrawingCanvas onDraw={setDrawing} defaultValue={props.post?.image} />
+          <FieldError name="doodle" className="rw-field-error" />
+        </div>
 
+        <div className="rw-input-group">
+          <Label
+            name="label"
+            className="rw-label"
+            errorClassName="rw-label rw-label-error"
+          >
+            doodle label:{' '}
+          </Label>
+          <TextField
+            name="label"
+            defaultValue={props.post?.label ?? ''}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+            validation={{required: true}}
+            placeholder="a beautiful flower"
+          />
+          <FieldError name="label" className="rw-field-error" />
+        </div>
+
+        <CheckboxField name="hidden" className="rw-input" />
         <Label
-          name="label"
+          name="hidden"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          doodle label:{' '}
+          {' '}
+          private
         </Label>
-        <TextField
-          name="label"
-          defaultValue={props.post?.label ?? ''}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{required: true}}
-        />
-        <FieldError name="label" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit
