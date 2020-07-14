@@ -5,6 +5,7 @@ export const schema = gql`
     id: Int!
     image: String!
     label: String!
+    private: Boolean!
     createdAt: DateTime!
   }
 
@@ -16,11 +17,13 @@ export const schema = gql`
   input CreatePostInput {
     image: String!
     label: String!
+    private: Boolean
   }
 
   input UpdatePostInput {
     image: String
     label: String
+    private: Boolean
   }
 
   type Mutation {
