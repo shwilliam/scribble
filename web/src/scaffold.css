@@ -83,8 +83,6 @@
 .rw-main {
   --header__height: 77px;
   margin-top: var(--header__height);
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   padding-bottom: 1rem;
 }
 .rw-segment {
@@ -247,8 +245,10 @@
   margin-top: 2rem;
   margin-bottom: 0;
 }
+.rw-input-group {
+  margin: 1rem 0;
+}
 .rw-label {
-  display: block;
   margin-top: 1.5rem;
   color: #4a5568;
   font-weight: 600;
@@ -268,6 +268,7 @@
   outline: none;
 }
 .rw-input[type='checkbox'] {
+  display: inline-block;
   width: initial;
   margin-left: 0;
 }
