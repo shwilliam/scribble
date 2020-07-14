@@ -82,7 +82,7 @@ const PostForm = props => {
         <div className="rw-button-group">
           <Submit
             disabled={props.loading}
-            className="rw-button rw-button-green"
+            className="rw-button rw-button-blue rw-button-submit"
           >
             publish
           </Submit>
