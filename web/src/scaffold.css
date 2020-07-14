@@ -83,8 +83,6 @@
 .rw-main {
   --header__height: 77px;
   margin-top: var(--header__height);
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
   padding-bottom: 1rem;
 }
 .rw-segment {

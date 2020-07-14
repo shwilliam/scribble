@@ -77,8 +77,8 @@ body {
 
 main {
   margin: 0 auto;
-  padding-right: var(--space-large);
-  padding-left: var(--space-large);
+  padding-right: var(--space-x-large);
+  padding-left: var(--space-x-large);
   padding-top: 2em;
   padding-top: max(2em, 10vmin);
 }
