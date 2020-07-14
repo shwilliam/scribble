@@ -2,7 +2,10 @@ import {requireAuth} from 'src/lib/auth'
 import {db} from 'src/lib/db'
 
 export const posts = () => {
-  return db.post.findMany({orderBy: {createdAt: 'desc'}})
+  return db.post.findMany({
+    where: {private: false},
+    orderBy: {createdAt: 'desc'},
+  })
 }
 
 export const post = ({id}) => {
