@@ -11,7 +11,11 @@ export const QUERY = gql`
   }
 `
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <div className="spinner__wrapper fade-in">
+    <span className="spinner" />
+  </div>
+)
 
 export const Empty = () => (
   <p>

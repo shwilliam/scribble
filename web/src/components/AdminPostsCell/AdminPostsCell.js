@@ -15,7 +15,11 @@ export const beforeQuery = props => {
   return {variables: props, fetchPolicy: 'cache-and-network'}
 }
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => (
+  <div className="spinner__wrapper fade-in">
+    <span className="spinner" />
+  </div>
+)
 
 export const Empty = () => {
   return <div className="rw-text-center">{'No doodles yet. '}</div>
