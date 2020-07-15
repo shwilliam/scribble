@@ -1,5 +1,6 @@
 import {useCssVar} from '@shwilliam/react-use-css-var'
 import {useEffect, useRef, useState} from 'react'
+import Slider from 'src/components/Slider'
 
 import {useWindowSize} from 'src/hooks/use-window-size'
 import {getPixelValueFromCssString} from 'src/lib/css'
@@ -14,6 +15,7 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
   const contextRef = useRef()
   const [isDrawing, setIsDrawing] = useState(false)
   const [stroke, setStroke] = useState('#ff40ff')
+  const [lineWidth, setLineWidth] = useState(4)
 
   const handleStrokeChange = event => setStroke(event.target.value)
 
@@ -72,6 +74,7 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
     canvas.height = 2 * scaledHeight
 
     const context = canvas.getContext('2d')
+    context.lineWidth = lineWidth
     context.lineCap = 'round'
     context.strokeStyle = 'black'
     context.scale(2, 2) // support high dpi displays
@@ -85,23 +88,33 @@ const DrawingCanvas = ({onDraw = () => {}, defaultValue = ''}) => {
     }
 
     contextRef.current = context
-  }, [defaultValue, getLargeSpace, getMaxCanvasSize, windowSize])
+  }, [defaultValue, getLargeSpace, getMaxCanvasSize, windowSize, lineWidth])
 
   return (
     <section className="drawing-canvas__wrapper">
-      <div className="drawing-canvas__stroke">
-        <label htmlFor="stroke" className="hide-screens">
-          Stroke color
-        </label>
-        <input
-          className="drawing-canvas__stroke-input"
-          type="color"
-          id="stroke"
-          name="stroke"
-          value={stroke}
-          onChange={handleStrokeChange}
+      <section>
+        <Slider
+          value={lineWidth}
+          onChange={setLineWidth}
+          min={1}
+          max={20}
+          className="drawing-canvas__line-width"
         />
-      </div>
+
+        <div className="drawing-canvas__stroke">
+          <label htmlFor="stroke" className="hide-screens">
+            Stroke color
+          </label>
+          <input
+            className="drawing-canvas__stroke-input"
+            type="color"
+            id="stroke"
+            name="stroke"
+            value={stroke}
+            onChange={handleStrokeChange}
+          />
+        </div>
+      </section>
       <canvas
         className="drawing-canvas bordered"
         ref={canvasRef}

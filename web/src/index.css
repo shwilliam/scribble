@@ -491,14 +491,25 @@ textarea,
   color: #4a5568;
 }
 
+.drawing-canvas__line-width {
+  position: absolute;
+  top: -55px;
+  width: calc(100% - 50px) !important;
+}
+
 .drawing-canvas__stroke {
   position: absolute;
-  top: -20px;
+  top: -40px;
   right: 0px;
   margin-right: var(--space-small);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .drawing-canvas__stroke-input {
+  transform: translateX(-25%);
   border: none;
   background: transparent;
   border-radius: 25px;
