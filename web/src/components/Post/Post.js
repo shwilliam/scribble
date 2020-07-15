@@ -2,7 +2,7 @@ import TimeTag from 'src/components/TimeTag'
 
 const Post = ({post}) => {
   return (
-    <article className="rw-segment doodle__wrapper">
+    <article className="rw-segment doodle__wrapper fade-in">
       <img className="doodle bordered" src={post.image} alt={post.label} />
 
       <footer className="flex -space-between">

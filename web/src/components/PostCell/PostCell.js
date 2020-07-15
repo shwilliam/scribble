@@ -13,7 +13,14 @@ export const QUERY = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Post not found</div>
+export const Empty = () => (
+  <p>
+    No doodle found{' '}
+    <span role="img" aria-label="sade face">
+      🥺
+    </span>
+  </p>
+)
 
 export const Success = ({post}) => {
   return <Post post={post} />

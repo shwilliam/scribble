@@ -2,7 +2,7 @@ import {Link, routes} from '@redwoodjs/router'
 
 const PostsList = ({posts}) => {
   return (
-    <div className="rw-segment grid">
+    <div className="rw-segment grid fade-in">
       {posts.map(post => (
         <Link
           key={post.id}
