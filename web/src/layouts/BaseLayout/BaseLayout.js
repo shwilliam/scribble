@@ -5,7 +5,7 @@ import ErrorBoundary from 'src/components/ErrorBoundary'
 const BaseLayout = ({children}) => {
   return (
     <ErrorBoundary>
-      <div className="rw-scaffold fade-in">
+      <div className="rw-scaffold">
         <Flash timeout={4000} />
         <header className="rw-header">
           <div className="rw-header-content">
@@ -32,7 +32,7 @@ const BaseLayout = ({children}) => {
           </div>
         </header>
 
-        <main className="rw-main">{children}</main>
+        <main className="rw-main fade-in">{children}</main>
       </div>
     </ErrorBoundary>
   )
