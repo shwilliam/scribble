@@ -497,6 +497,10 @@ textarea,
   width: calc(100% - 50px) !important;
 }
 
+.drawing-canvas__line-width [data-reach-slider-handle] {
+  border: 2px solid #1159a6;
+}
+
 .drawing-canvas__stroke {
   position: absolute;
   top: -40px;
