@@ -16,12 +16,12 @@ const BaseLayout = ({children}) => {
               <span role="img" aria-label="" className="push-small">
                 🖼
               </span>
-              dood.link
+              <span className="hide-mobile">dood.link</span>
             </Link>
             <nav className="flex">
               <Link
                 to={routes.posts()}
-                className="rw-heading rw-link push-large flush--top flush--bottom"
+                className="rw-heading rw-link push flush--top flush--bottom"
               >
                 recent
               </Link>

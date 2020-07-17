@@ -106,11 +106,13 @@
   font-weight: 600;
   text-align: center;
 }
-.rw-heading .rw-link {
-  color: #4a5568;
+.rw-heading .rw-link,
+.rw-heading.rw-link {
+  color: var(--color-azure);
   text-decoration: none;
 }
-.rw-heading .rw-link:hover {
+.rw-heading .rw-link:hover,
+.rw-heading.rw-link:hover {
   color: #1a202c;
   text-decoration: underline;
 }
